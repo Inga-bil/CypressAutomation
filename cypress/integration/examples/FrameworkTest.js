@@ -1,4 +1,5 @@
 /// <reference types="Cypress" />
+import HomePage from '../pageObjects/HomePage'
 
 
 
@@ -17,15 +18,16 @@ describe('My Test Suit', ()=>{
     
 
     it('Frames Handler test', function(){
+        const homePage = new HomePage()
 
         cy.visit('https://rahulshettyacademy.com/angularpractice/')
-        cy.get('input[name="name"]:nth-child(2)').type(this.data.name)
-        cy.get('select').select(this.data.gender)
-        cy.get('input[name="name"]:nth-child(1)').should('have.value', 'Inga')
+        homePage.getEditBox().type(this.data.name)
+        homePage.getGender().select(this.data.gender)
+        homePage.getTwoDataBinding().should('have.value', 'Inga')
 
-        cy.get('input[name="name"]:nth-child(2)').should('have.attr', 'minlength', '2')
-        cy.get('#inlineRadio3').should('be.disabled')
-        cy.get(':nth-child(2) > .nav-link').click()
+        homePage.getEditBox().should('have.attr', 'minlength', '2')
+        homePage.getEnterpreneur().should('be.disabled')
+        homePage.getShopTab().click()
 
         this.data.productName.forEach(function(element){
             cy.selectProduct(element)
