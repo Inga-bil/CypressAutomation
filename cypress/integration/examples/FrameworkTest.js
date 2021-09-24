@@ -39,6 +39,32 @@ describe('My Test Suit', ()=>{
         })
 
         productPage.getCheckoutTab().click()
+        var sum = 0
+        cy.get('tr td:nth-child(4) strong').each(($el, index, $list)=>{
+
+            const actualText = $el.text()
+            var result = actualText.split(" ")
+            result = result[1].trim()
+            sum = Number(sum)+Number(result)
+            
+            
+        }).then(function(){
+
+            cy.log(sum)
+        })
+
+        cy.get('tr td:nth-child(5) strong').then(function(element){
+
+            const actualResult = element.text()
+            var res = actualResult.split(" ")
+            res = res[1].trim()
+            cy.log(res)
+            expect(Number(res)).to.equal(Number(sum))
+
+
+
+        })
+        
         productPage.getConfirmCheckout().click()
         productPage.getCountry().type('India')
         productPage.getSelectedCountry().click()
