@@ -1,0 +1,100 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-09-24T21:51:32.817Z",
+    "end": "2021-09-24T21:51:47.028Z",
+    "duration": 14211,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "10f96f5a-9004-4825-b8de-3d5fdced4936",
+      "title": "",
+      "fullFile": "cypress/integration/examples/FrameworkTest.js",
+      "file": "cypress/integration/examples/FrameworkTest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "187846b7-be2d-49fb-b94f-68af7cf9595d",
+          "title": "My Test Suit",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Frames Handler test",
+              "fullTitle": "My Test Suit Frames Handler test",
+              "timedOut": null,
+              "duration": 12273,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const homePage = new _HomePage.default();\nconst productPage = new _ProductPage.default();\ncy.visit('https://rahulshettyacademy.com/angularpractice/');\nhomePage.getEditBox().type(this.data.name);\nhomePage.getGender().select(this.data.gender);\nhomePage.getTwoDataBinding().should('have.value', 'Inga');\nhomePage.getEditBox().should('have.attr', 'minlength', '2');\nhomePage.getEnterpreneur().should('be.disabled');\nhomePage.getShopTab().click();\nthis.data.productName.forEach(function (element) {\n  cy.selectProduct(element);\n});\nproductPage.getCheckoutTab().click();\nvar sum = 0;\ncy.get('tr td:nth-child(4) strong').each(($el, index, $list) => {\n  const actualText = $el.text();\n  var result = actualText.split(\" \");\n  result = result[1].trim();\n  sum = Number(sum) + Number(result);\n}).then(function () {\n  cy.log(sum);\n});\ncy.get('tr td:nth-child(5) strong').then(function (element) {\n  const actualResult = element.text();\n  var res = actualResult.split(\" \");\n  res = res[1].trim();\n  cy.log(res);\n  expect(Number(res)).to.equal(Number(sum));\n});\nproductPage.getConfirmCheckout().click();\nproductPage.getCountry().type('India');\nproductPage.getSelectedCountry().click();\nproductPage.getCheckbox().check({\n  force: true\n});\ncy.get(\"input[value='Purchase']\").click(); //cy.get('.alert').should('have.text', 'Success! Thank you! Your order will be delivered in next few weeks :-).')\ncy.get('.alert').then(function (element) {\n  const actualText = element.text();\n  expect(actualText.includes('Success')).to.be.true;\n});\n/*cy.get('#country').each(($el, index, $list) =>{\n    const countryName = $el.find('.suggestions > :nth-child(1) > li > a').text()\n    if(countryName.includes('India'))\n    {\n        $el.click()\n    }\n}) */",
+              "err": {},
+              "uuid": "b9c85fdd-159a-4343-aa01-6bb967c9e4f3",
+              "parentUUID": "187846b7-be2d-49fb-b94f-68af7cf9595d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b9c85fdd-159a-4343-aa01-6bb967c9e4f3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12273,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.2.0"
+    }
+  }
+}
