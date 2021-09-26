@@ -2,5 +2,6 @@
   "defaultCommandTimeout": 8000,
   "pageLoadTimeout": 10000,
   "reporter": "mochawesome",
+  "testFiles": "**/*.feature",
   "projectId": "mibe7j"
 }

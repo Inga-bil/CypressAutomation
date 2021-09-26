@@ -6,12 +6,15 @@
   "scripts": {
     "test": ".//node_modules//.bin//cypress run",
     "headTest": "npm run test -- --headed"
-
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^8.4.1",
+    "cypress-cucumber-preprocessor": "^4.2.0",
     "cypress-iframe": "^1.0.1",
     "mocha": "^9.1.1",
     "mochawesome": "^6.2.2"
